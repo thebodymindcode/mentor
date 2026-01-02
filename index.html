@@ -6,23 +6,28 @@
     <title>Архитектура Сознания — Менторство по мультиплатформенному росту</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a25;
-            --text-primary: #f5f5f7;
-            --text-secondary: #a0a0b0;
-            --accent-gold: #d4af37;
-            --accent-purple: #8b5cf6;
-            --accent-pink: #ec4899;
-            --accent-cyan: #06b6d4;
-            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%);
-            --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-            --gradient-mesh: radial-gradient(at 40% 20%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-                            radial-gradient(at 80% 0%, rgba(212, 175, 55, 0.1) 0px, transparent 50%),
-                            radial-gradient(at 0% 50%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
+            --bg-primary: #fafafa;
+            --bg-secondary: #f0f0f0;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-main: #2563eb;
+            --accent-secondary: #7c3aed;
+            --accent-warm: #f59e0b;
+            --accent-green: #10b981;
+            --gradient-main: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            --gradient-cool: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.05), 0 10px 20px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
         }
 
         * {
@@ -36,36 +41,11 @@
         }
 
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Outfit', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
-        }
-
-        /* Noise texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
         }
 
         /* Navigation */
@@ -75,73 +55,54 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 20px 50px;
+            padding: 16px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 15, 0.8);
+            background: rgba(250, 250, 250, 0.9);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 32px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            color: var(--accent-main);
         }
 
         .nav-cta {
-            padding: 12px 30px;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
+            padding: 10px 24px;
+            background: var(--gradient-main);
+            color: white;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            border-radius: 30px;
+            border-radius: 100px;
             transition: all 0.3s ease;
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
         }
 
         /* Hero Section */
@@ -149,33 +110,38 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 50px 80px;
+            padding: 120px 40px 80px;
             position: relative;
-            background: var(--gradient-mesh), var(--bg-primary);
+            overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 50%;
-            right: 10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
-            filter: blur(80px);
-            animation: pulse 8s ease-in-out infinite;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 60%);
+            pointer-events: none;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .hero-content {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1.1fr 1fr;
             gap: 80px;
             align-items: center;
             position: relative;
@@ -185,152 +151,127 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 20px;
-            background: rgba(139, 92, 246, 0.15);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 30px;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 100px;
             font-size: 0.85rem;
-            color: var(--accent-purple);
-            margin-bottom: 30px;
-            animation: fadeInUp 0.8s ease;
+            color: var(--accent-main);
+            font-weight: 500;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
         }
 
         .hero-badge::before {
             content: '';
             width: 8px;
             height: 8px;
-            background: var(--accent-purple);
+            background: var(--accent-green);
             border-radius: 50%;
-            animation: blink 2s ease-in-out infinite;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            animation: fadeInUp 0.8s ease 0.1s backwards;
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.15;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
         }
 
         .hero h1 span {
-            background: var(--gradient-gold);
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-text {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 550px;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
+            margin-bottom: 32px;
+            max-width: 520px;
+            line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
-            animation: fadeInUp 0.8s ease 0.3s backwards;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 18px 40px;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
+            gap: 8px;
+            padding: 16px 32px;
+            background: var(--gradient-main);
+            color: white;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1rem;
-            border-radius: 50px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
+            border-radius: 100px;
+            transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 18px 40px;
-            background: transparent;
+            gap: 8px;
+            padding: 16px 32px;
+            background: white;
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 100px;
             transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
-            border-color: var(--accent-purple);
-            color: var(--accent-purple);
-            background: rgba(139, 92, 246, 0.1);
+            border-color: var(--accent-main);
+            color: var(--accent-main);
         }
 
         .hero-visual {
             position: relative;
-            animation: fadeInRight 1s ease 0.4s backwards;
         }
 
         .hero-stats-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 24px;
-            padding: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-stats-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-gold);
+            background: white;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
         }
 
         .stats-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
         .stats-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient-purple);
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--gradient-main);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -338,8 +279,10 @@
         }
 
         .stats-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
         .stats-info p {
@@ -350,100 +293,72 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .stat-item {
-            background: rgba(255,255,255,0.03);
-            border-radius: 16px;
-            padding: 20px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            padding: 16px;
             text-align: center;
             transition: all 0.3s ease;
         }
 
         .stat-item:hover {
-            background: rgba(139, 92, 246, 0.1);
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
         }
 
         .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.6rem;
             font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-main);
             display: block;
         }
 
         .stat-label {
             font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
         .stats-highlight {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
-            border-radius: 16px;
-            padding: 25px;
+            background: var(--gradient-main);
+            border-radius: var(--radius-md);
+            padding: 20px;
             text-align: center;
+            color: white;
         }
 
         .stats-highlight .big-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 800;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Sora', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
         }
 
         .stats-highlight p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 4px;
         }
 
         /* Social Proof */
         .social-proof {
-            padding: 60px 50px;
-            background: var(--bg-secondary);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 40px;
+            background: white;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .social-proof-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 80px;
+            gap: 60px;
             flex-wrap: wrap;
         }
 
@@ -452,399 +367,334 @@
         }
 
         .proof-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--accent-gold);
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: block;
         }
 
         .proof-label {
             color: var(--text-secondary);
             font-size: 0.9rem;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
-        /* Unique Section */
-        .unique {
-            padding: 150px 50px;
-            position: relative;
-            background: var(--gradient-mesh), var(--bg-primary);
-        }
-
+        /* Section Styles */
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .section-tag {
             display: inline-block;
-            padding: 8px 20px;
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 30px;
-            color: var(--accent-gold);
+            padding: 6px 16px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 100px;
+            color: var(--accent-main);
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .section-header h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-family: 'Sora', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .section-header p {
             color: var(--text-secondary);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
         }
 
+        /* Unique Section */
+        .unique {
+            padding: 120px 40px;
+            background: var(--bg-primary);
+        }
+
         .unique-grid {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 24px;
         }
 
         .unique-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 24px;
-            padding: 40px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: all 0.3s ease;
         }
 
         .unique-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(139, 92, 246, 0.3);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-        }
-
-        .unique-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .unique-card:hover::before {
-            opacity: 1;
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(37, 99, 235, 0.2);
         }
 
         .unique-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-purple);
-            border-radius: 20px;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-main);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 25px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .unique-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
 
         .unique-card p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.7;
+        }
+
+        /* Program Section */
+        .program {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .program-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-item {
+            background: var(--bg-primary);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .module-item:hover {
+            border-color: rgba(37, 99, 235, 0.2);
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+
+        .module-header-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .module-number {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-main);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .module-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            flex-grow: 1;
+        }
+
+        .module-speaker {
+            padding: 6px 14px;
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--accent-secondary);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .module-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-left: 52px;
+        }
+
+        .module-description ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 12px;
+        }
+
+        .module-description li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .module-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-main);
         }
 
         /* Results Section */
         .results {
-            padding: 150px 50px;
-            background: var(--bg-secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .results::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            left: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            filter: blur(100px);
+            padding: 120px 40px;
+            background: var(--bg-primary);
         }
 
         .results-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 100px;
+            gap: 80px;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
 
         .results-visual {
             position: relative;
         }
 
-        .results-image-container {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-        }
-
-        .results-image {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            filter: brightness(0.8);
-        }
-
-        .results-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        .results-card {
+            background: white;
+            border-radius: var(--radius-xl);
             padding: 40px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            box-shadow: var(--shadow-lg);
         }
 
-        .results-badge {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
-            font-weight: 700;
-            border-radius: 30px;
-            font-size: 0.9rem;
+        .results-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 24px;
         }
 
-        .results-list {
-            list-style: none;
-        }
-
-        .results-list li {
+        .result-item {
             display: flex;
             align-items: flex-start;
-            gap: 20px;
-            padding: 25px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
-        .results-list li:last-child {
+        .result-item:last-child {
             border-bottom: none;
         }
 
         .result-check {
-            width: 30px;
-            height: 30px;
-            background: var(--gradient-gold);
-            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            background: var(--accent-green);
+            border-radius: 8px;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .result-text h4 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            font-size: 1rem;
+            margin-bottom: 4px;
         }
 
         .result-text p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        /* Program Section */
-        .program {
-            padding: 150px 50px;
-            background: var(--bg-primary);
-            position: relative;
-        }
-
-        .program-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .module-timeline {
-            position: relative;
-            padding-left: 50px;
-        }
-
-        .module-timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent-purple), var(--accent-gold), var(--accent-pink));
-        }
-
-        .module-item {
-            position: relative;
-            padding: 30px 0 50px;
-        }
-
-        .module-dot {
-            position: absolute;
-            left: -43px;
-            top: 35px;
-            width: 32px;
-            height: 32px;
-            background: var(--bg-primary);
-            border: 3px solid var(--accent-purple);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--accent-purple);
-            z-index: 1;
-        }
-
-        .module-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.3s ease;
-        }
-
-        .module-card:hover {
-            border-color: rgba(139, 92, 246, 0.3);
-            transform: translateX(10px);
-        }
-
-        .module-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .module-title {
-            font-size: 1.3rem;
-        }
-
-        .module-speaker {
-            padding: 6px 15px;
-            background: rgba(139, 92, 246, 0.2);
-            color: var(--accent-purple);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .module-topics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .module-topic {
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-
-        .module-topic:hover {
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--accent-gold);
-        }
-
-        /* Speakers Section */
+        /* Speakers */
         .speakers {
-            padding: 150px 50px;
-            background: var(--bg-secondary);
+            padding: 120px 40px;
+            background: white;
         }
 
         .speakers-grid {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
+            gap: 32px;
         }
 
         .speaker-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.4s ease;
+            background: var(--bg-primary);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
         .speaker-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .speaker-image {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            filter: grayscale(30%);
-            transition: filter 0.4s ease;
-        }
-
-        .speaker-card:hover .speaker-image {
-            filter: grayscale(0%);
-        }
-
-        .speaker-info {
-            padding: 35px;
+        .speaker-avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-main);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
         }
 
         .speaker-name {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
         .speaker-handle {
-            color: var(--accent-purple);
-            font-size: 1rem;
+            color: var(--accent-main);
+            font-size: 0.95rem;
             margin-bottom: 20px;
         }
 
         .speaker-stats {
             display: flex;
-            gap: 30px;
+            justify-content: center;
+            gap: 24px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .speaker-stat {
-            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.06);
         }
 
         .speaker-stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--accent-gold);
+            color: var(--accent-main);
+            display: block;
         }
 
         .speaker-stat-label {
@@ -852,93 +702,83 @@
             color: var(--text-secondary);
         }
 
-        /* Pricing Section */
+        /* Pricing */
         .pricing {
-            padding: 150px 50px;
-            background: var(--gradient-mesh), var(--bg-primary);
-            position: relative;
+            padding: 120px 40px;
+            background: var(--bg-primary);
         }
 
         .pricing-card {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
-            background: var(--bg-card);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            border-radius: 32px;
-            padding: 60px;
+            background: white;
+            border: 2px solid rgba(37, 99, 235, 0.2);
+            border-radius: var(--radius-xl);
+            padding: 48px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: var(--gradient-gold);
+            box-shadow: var(--shadow-lg);
         }
 
         .pricing-badge {
             display: inline-block;
-            padding: 10px 25px;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
-            font-weight: 700;
-            border-radius: 30px;
+            padding: 8px 20px;
+            background: var(--gradient-warm);
+            color: white;
+            font-weight: 600;
+            border-radius: 100px;
             font-size: 0.9rem;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
 
         .pricing-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
         }
 
         .pricing-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            font-weight: 800;
-            background: var(--gradient-gold);
+            font-family: 'Sora', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .pricing-price span {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
         .pricing-period {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            font-size: 1rem;
+            margin-bottom: 32px;
         }
 
         .pricing-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 12px;
             text-align: left;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .pricing-feature {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 15px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            font-size: 0.95rem;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
         }
 
         .pricing-feature::before {
             content: '✓';
-            color: var(--accent-gold);
+            color: var(--accent-green);
             font-weight: bold;
         }
 
@@ -946,49 +786,74 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 22px 60px;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
+            padding: 18px 48px;
+            background: var(--gradient-main);
+            color: white;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            transition: all 0.4s ease;
+            font-size: 1.1rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
         }
 
         .pricing-cta:hover {
             transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Audience */
+        .audience {
+            padding: 100px 40px;
+            background: white;
+        }
+
+        .audience-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .audience-item {
+            padding: 16px 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .audience-item.red {
+            background: rgba(239, 68, 68, 0.1);
+            border-left-color: #ef4444;
         }
 
         /* Footer */
         footer {
-            padding: 80px 50px;
-            background: var(--bg-secondary);
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 40px;
+            background: var(--bg-primary);
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
         }
 
         .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .footer-links {
             display: flex;
-            gap: 40px;
+            gap: 32px;
         }
 
         .footer-links a {
@@ -998,7 +863,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--accent-gold);
+            color: var(--accent-main);
         }
 
         .footer-copy {
@@ -1006,20 +871,32 @@
             font-size: 0.9rem;
         }
 
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive */
-        @media (max-width: 1200px) {
+        @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: 60px;
+                gap: 48px;
             }
-            
+
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 2.8rem;
             }
 
             .results-content {
                 grid-template-columns: 1fr;
-                gap: 60px;
+                gap: 48px;
             }
 
             .unique-grid {
@@ -1029,7 +906,7 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 15px 20px;
+                padding: 12px 20px;
             }
 
             .nav-links {
@@ -1041,18 +918,16 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .section-header h2 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
-            .unique-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .speakers-grid {
+            .unique-grid,
+            .speakers-grid,
+            .audience-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1060,32 +935,10 @@
                 grid-template-columns: 1fr;
             }
 
-            .pricing-price {
-                font-size: 3.5rem;
-            }
-
             .footer-content {
                 flex-direction: column;
-                gap: 30px;
                 text-align: center;
             }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
@@ -1094,8 +947,8 @@
         <div class="logo">Архитектура Сознания</div>
         <ul class="nav-links">
             <li><a href="#unique">Уникальность</a></li>
-            <li><a href="#results">Результаты</a></li>
             <li><a href="#program">Программа</a></li>
+            <li><a href="#results">Результаты</a></li>
             <li><a href="#speakers">Ведущие</a></li>
         </ul>
         <a href="#pricing" class="nav-cta">Записаться</a>
@@ -1105,14 +958,14 @@
         <div class="hero-content">
             <div class="hero-text-content">
                 <div class="hero-badge">
-                    <span>Старт нового потока — Февраль 2026</span>
+                    <span>Старт потока — 7 января 2026</span>
                 </div>
-                <h1>Построй <span>империю</span> в соцсетях за 2 месяца</h1>
-                <p class="hero-text">Мультиплатформенный рост через нейро-контент. Без съёмок, без рекламы, без выгорания. Instagram + YouTube + TikTok + Telegram одновременно.</p>
+                <h1>Система <span>мультиплатформенного роста</span> через нейро-контент</h1>
+                <p class="hero-text">Менторство для экспертов, которые хотят освоить создание контента на Instagram, YouTube, TikTok и Telegram одновременно. Два формата на выбор: без камеры или классический блог.</p>
                 <div class="hero-buttons">
-                    <a href="#pricing" class="btn-primary">
-                        Забронировать место
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <a href="https://t.me/TheBodyMindCode_support" class="btn-primary">
+                        Записаться на менторство
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
@@ -1172,102 +1025,48 @@
                 <span class="proof-label">потрачено на рекламу</span>
             </div>
             <div class="proof-item">
-                <span class="proof-number">45 дней</span>
-                <span class="proof-label">до первых результатов</span>
+                <span class="proof-number">1.5 мес</span>
+                <span class="proof-label">до этих результатов</span>
             </div>
         </div>
     </section>
 
     <section class="unique" id="unique">
         <div class="section-header">
-            <span class="section-tag">Почему мы</span>
-            <h2>Это не очередной курс</h2>
-            <p>В отличие от других, мы даём систему, которая работает на всех платформах одновременно</p>
+            <span class="section-tag">Подход</span>
+            <h2>Чем это менторство отличается</h2>
+            <p>Мы не продаём волшебные таблетки — даём систему, которую используем сами</p>
         </div>
         <div class="unique-grid">
             <div class="unique-card fade-in">
                 <div class="unique-icon">🔥</div>
                 <h3>Мультиплатформа</h3>
-                <p>Один контент — четыре платформы. Instagram, YouTube, TikTok и Telegram растут параллельно, усиливая друг друга.</p>
+                <p>Один контент адаптируется на четыре платформы. Instagram, YouTube, TikTok и Telegram растут параллельно и усиливают друг друга.</p>
             </div>
             <div class="unique-card fade-in">
                 <div class="unique-icon">🤖</div>
                 <h3>Claude как основа</h3>
-                <p>Не ChatGPT. Claude — более мощный инструмент для создания текстов, которые цепляют и конвертируют.</p>
+                <p>Не ChatGPT. Мы используем Claude — более продвинутый инструмент для создания текстов, которые цепляют внимание и конвертируют в подписки.</p>
             </div>
             <div class="unique-card fade-in">
                 <div class="unique-icon">🎨</div>
                 <h3>Faceless или с лицом</h3>
-                <p>Два формата на выбор: нейро-визуализация без съёмок или классический блог. Работают оба.</p>
+                <p>Два формата на выбор: нейро-визуализация для тех, кто не хочет снимать себя, или классический блог с лицом. Показываем оба подхода.</p>
             </div>
             <div class="unique-card fade-in">
                 <div class="unique-icon">🧠</div>
                 <h3>Работа с состоянием</h3>
-                <p>Не только техники. Психология, энергия, мышление создателя — то, о чём молчат другие курсы.</p>
+                <p>Не только технические навыки. Разбираем психологию создателя, синдром самозванца, страх осуждения и как не выгореть за первые месяцы.</p>
             </div>
             <div class="unique-card fade-in">
                 <div class="unique-icon">📍</div>
                 <h3>Живые встречи</h3>
-                <p>7 встреч в Москве за 2 месяца. Реальные разборы, нетворкинг, обратная связь вживую.</p>
+                <p>7 офлайн-встреч в Москве за 2 месяца. Разборы аккаунтов, нетворкинг, обратная связь вживую. Для иногородних — онлайн-трансляция.</p>
             </div>
             <div class="unique-card fade-in">
                 <div class="unique-icon">🎯</div>
-                <h3>Монетизация с первого дня</h3>
-                <p>Вся стратегия ведёт к продажам через Telegram. Не просто подписчики — а деньги.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="results" id="results">
-        <div class="results-content">
-            <div class="results-visual fade-in">
-                <div class="results-image-container">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800" alt="Results" class="results-image">
-                    <div class="results-overlay">
-                        <span class="results-badge">✓ Проверено на практике</span>
-                    </div>
-                </div>
-            </div>
-            <div class="results-text fade-in">
-                <span class="section-tag">Результаты</span>
-                <h2>Что ты получишь за 2 месяца</h2>
-                <ul class="results-list">
-                    <li>
-                        <span class="result-check">✓</span>
-                        <div class="result-text">
-                            <h4>Упакованные профили на 3+ платформах</h4>
-                            <p>Instagram, YouTube, TikTok, Telegram — единый стиль и позиционирование</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="result-check">✓</span>
-                        <div class="result-text">
-                            <h4>Настроенные нейросети под твой стиль</h4>
-                            <p>Claude и ChatGPT, обученные писать твоим голосом</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="result-check">✓</span>
-                        <div class="result-text">
-                            <h4>Система создания контента за 30 мин/день</h4>
-                            <p>Конвейер: идея → текст → видео → публикация</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="result-check">✓</span>
-                        <div class="result-text">
-                            <h4>Готовая воронка продаж</h4>
-                            <p>Telegram-канал + бот + автоворонка + оплата</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="result-check">✓</span>
-                        <div class="result-text">
-                            <h4>Готовый продукт и оффер</h4>
-                            <p>Консультация, курс или менторство — упакованные и готовые к продаже</p>
-                        </div>
-                    </li>
-                </ul>
+                <h3>Фокус на монетизацию</h3>
+                <p>Вся стратегия выстроена на перелив аудитории в Telegram и продажи. Не просто подписчики ради цифр — а выстроенная воронка.</p>
             </div>
         </div>
     </section>
@@ -1277,156 +1076,163 @@
             <div class="section-header">
                 <span class="section-tag">Программа</span>
                 <h2>10 модулей за 8 недель</h2>
-                <p>От состояния до первых продаж — полный путь создателя контента</p>
+                <p>Пошаговая система от распаковки до первых продаж</p>
             </div>
-            <div class="module-timeline">
-                <div class="module-item fade-in">
-                    <div class="module-dot">0</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Фундамент</h3>
-                            <span class="module-speaker">Алексей</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">Правила группы</span>
-                            <span class="module-topic">VPN и доступы</span>
-                            <span class="module-topic">Нейросети</span>
-                            <span class="module-topic">Оплата сервисов</span>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">0</div>
+                    <div class="module-title">Фундамент (до старта)</div>
+                    <span class="module-speaker">Алексей</span>
+                </div>
+                <div class="module-description">
+                    Подготовка к менторству: правила группы, расписание встреч. Регистрация аккаунтов на всех платформах. Настройка VPN для корректной работы. Получение доступа к нейросетям: Claude, ChatGPT, Sora, Veo. Способы оплаты зарубежных сервисов из России.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">1</div>
+                    <div class="module-title">Состояние и мышление</div>
+                    <span class="module-speaker">Алексей + Дарья</span>
+                </div>
+                <div class="module-description">
+                    Психология создателя контента: почему 90% бросают после первого месяца и как не попасть в их число. Разбор синдрома самозванца и страха осуждения. Энергия и ресурсное состояние — откуда брать силы на ежедневный контент. Практики для входа в поток: медитация, дыхание, движение. Мышление на результат и декомпозиция целей. Выбор формата: блог с лицом или faceless.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">2</div>
+                    <div class="module-title">Распаковка и позиционирование</div>
+                    <span class="module-speaker">Алексей + Дарья</span>
+                </div>
+                <div class="module-description">
+                    Глубинная распаковка личности: твои ценности, опыт, уникальность. Метод «100 фактов о себе» для поиска своей темы. Выбор ниши: широкая или узкая на старте, что лучше. Анализ конкурентов: как изучать, но не копировать. Создание персонажа блога: архетипы (Мудрец, Бунтарь, Творец). Tone of Voice — твой уникальный голос. Упаковка профилей: шапка, аватар, хайлайтс, единый стиль.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">3</div>
+                    <div class="module-title">Нейросети — твоя команда</div>
+                    <span class="module-speaker">Алексей</span>
+                </div>
+                <div class="module-description">
+                    Почему Claude, а не ChatGPT: разбор преимуществ и отличий. Настройка персонального ассистента в Claude под твой стиль. Загрузка базы знаний: Tone of Voice, триггеры, структура текстов. Готовая библиотека промптов для вирусных текстов. Когда использовать ChatGPT и как создавать кастомные GPT-модели. Структура вирусного текста: Заголовок → Боль → Факт → Решение. Психологические триггеры: любопытство, страх, надежда. Парсинг конкурентов — как находить то, что уже залетело. Контент-план на месяц за 30 минут с помощью ИИ.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">4</div>
+                    <div class="module-title">Видео-контент без съёмок</div>
+                    <span class="module-speaker">Алексей</span>
+                </div>
+                <div class="module-description">
+                    Sora (OpenAI) — создание видео из текста: как получить доступ, промпты для «залипательных» абстракций. Стили нейро-визуализации: космос, природа, механизмы, золото, абстракции. Google Veo 3 — альтернатива Sora: создание видео из изображений. Сравнение Sora vs Veo: когда что использовать. Kling и другие генераторы видео. Бесплатные vs платные варианты — как экономить. Для тех, кто хочет снимать с лицом: как записать 10 видео за 30 минут. Минимальный набор для съёмки: свет, звук, фон без лишних затрат.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">5</div>
+                    <div class="module-title">Instagram — взрыв через Reels</div>
+                    <span class="module-speaker">Алексей + Дарья</span>
+                </div>
+                <div class="module-description">
+                    Алгоритмы Instagram 2025: как реально работают рекомендации. Что влияет на охваты: удержание, досмотры, сохранения, комментарии. Время публикации — миф или правда? Разбор на реальных данных. Теневой бан: как избежать и как выйти. Анатомия вирусного Reels: первые 3 секунды — крючок. Нейро-описание: текст, который держит и вовлекает. Хештеги, музыка, геолокация — что реально работает. Система публикаций: качество важнее количества. Конвейер создания: идея → текст → видео → публикация за 30 минут. Стратегия первых 10K подписчиков.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">6</div>
+                    <div class="module-title">YouTube + TikTok — масштабирование</div>
+                    <span class="module-speaker">Алексей</span>
+                </div>
+                <div class="module-description">
+                    YouTube Shorts: ключевые отличия от Instagram Reels. Алгоритмы YouTube 2025 — как попасть в рекомендации. Адаптация контента при переносе из Instagram. Монетизация Shorts: как подключить и сколько реально платят. TikTok: особенности платформы и её аудитории. Тренды и звуки в TikTok — как использовать для роста. Кросс-постинг: один контент — три платформы, что адаптировать. Инструменты для автопостинга. Мультиплатформенная стратегия: какую платформу качать первой. Перелив аудитории между платформами.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">7</div>
+                    <div class="module-title">Telegram — центр монетизации</div>
+                    <span class="module-speaker">Алексей + Дарья</span>
+                </div>
+                <div class="module-description">
+                    Telegram-канал с нуля: оформление и упаковка. Контент для Telegram — чем отличается от Reels. Частота постов и лучшее время публикаций. Вовлечение: опросы, реакции, комментарии. Перелив трафика из соцсетей: эффективные Call-to-action. Лид-магниты — что предложить за подписку. Воронка продаж: соцсеть → Telegram → прогрев → продажа. BotHelp и ChatPlace: настройка автоворонки. Кодовые слова и автоматические ответы. Сторителлинг в Telegram — истории, которые продают. Подготовка к запуску продукта.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">8</div>
+                    <div class="module-title">Сайты и инфраструктура</div>
+                    <span class="module-speaker">Алексей</span>
+                </div>
+                <div class="module-description">
+                    Создание сайтов через Claude + GitHub за 1-2 часа. Промпты для генерации красивого кода без навыков программирования. Деплой на GitHub Pages — бесплатный хостинг навсегда. Подключение своего домена. Альтернативы: Taplink, Notion как лендинг. Структура продающего лендинга: заголовок, оффер, боли, программа, кейсы, цена, FAQ. Как оформить социальное доказательство. Психология ценообразования — как выставлять цену.
+                </div>
+            </div>
+
+            <div class="module-item fade-in">
+                <div class="module-header-row">
+                    <div class="module-number">9</div>
+                    <div class="module-title">Монетизация и продажи</div>
+                    <span class="module-speaker">Алексей</span>
+                </div>
+                <div class="module-description">
+                    Продуктовая линейка: консультации, курсы, менторство. Трипваер → основной продукт → премиум — лестница ценности. Как упаковать свою экспертизу в продукт. Создание неотразимого оффера. Платёжные системы: ЮKassa, Робокасса, Тинькофф Касса, Stripe. Рассрочки: Тинькофф Рассрочка, Сплит — как подключить. CRM-системы: AmoCRM, Битрикс24, Notion как простая CRM. Автоматизация: бот → CRM → оплата без твоего участия. Продажи через контент без впаривания. Юридические аспекты: самозанятость vs ИП, договор оферты, налоги.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results" id="results">
+        <div class="results-content">
+            <div class="results-text fade-in">
+                <span class="section-tag">Результаты</span>
+                <h2>Что ты получишь за 2 месяца</h2>
+                <p style="color: var(--text-secondary); margin-top: 16px; margin-bottom: 32px;">Конкретные навыки и инструменты, которые останутся с тобой навсегда</p>
+            </div>
+            <div class="results-visual fade-in">
+                <div class="results-card">
+                    <div class="result-item">
+                        <span class="result-check">✓</span>
+                        <div class="result-text">
+                            <h4>Упакованные профили на 3+ платформах</h4>
+                            <p>Instagram, YouTube, TikTok, Telegram — единый стиль</p>
                         </div>
                     </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">1</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Состояние и мышление</h3>
-                            <span class="module-speaker">Алексей + Дарья</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">Психология создателя</span>
-                            <span class="module-topic">Синдром самозванца</span>
-                            <span class="module-topic">Энергия и поток</span>
-                            <span class="module-topic">Выбор формата</span>
+                    <div class="result-item">
+                        <span class="result-check">✓</span>
+                        <div class="result-text">
+                            <h4>Настроенные нейросети под твой стиль</h4>
+                            <p>Claude и ChatGPT, обученные писать твоим голосом</p>
                         </div>
                     </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">2</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Распаковка и позиционирование</h3>
-                            <span class="module-speaker">Алексей + Дарья</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">100 фактов о себе</span>
-                            <span class="module-topic">Выбор ниши</span>
-                            <span class="module-topic">Архетипы</span>
-                            <span class="module-topic">Tone of Voice</span>
+                    <div class="result-item">
+                        <span class="result-check">✓</span>
+                        <div class="result-text">
+                            <h4>Система создания контента за 30 мин/день</h4>
+                            <p>Конвейер: идея → текст → видео → публикация</p>
                         </div>
                     </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">3</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Нейросети — твоя команда</h3>
-                            <span class="module-speaker">Алексей</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">Claude vs ChatGPT</span>
-                            <span class="module-topic">Промпты для текстов</span>
-                            <span class="module-topic">Вирусная структура</span>
-                            <span class="module-topic">Контент-план за 30 мин</span>
+                    <div class="result-item">
+                        <span class="result-check">✓</span>
+                        <div class="result-text">
+                            <h4>Telegram-канал с воронкой продаж</h4>
+                            <p>Бот, автоворонка, прогрев, сегментация</p>
                         </div>
                     </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">4</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Видео без съёмок</h3>
-                            <span class="module-speaker">Алексей</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">Sora & Veo</span>
-                            <span class="module-topic">Kling AI</span>
-                            <span class="module-topic">Нейро-визуализация</span>
-                            <span class="module-topic">Съёмка с лицом</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">5</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Instagram — взрыв через Reels</h3>
-                            <span class="module-speaker">Алексей + Дарья</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">Алгоритмы 2025</span>
-                            <span class="module-topic">Вирусный Reels</span>
-                            <span class="module-topic">Первые 3 секунды</span>
-                            <span class="module-topic">Стратегия 10K+</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">6</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">YouTube + TikTok</h3>
-                            <span class="module-speaker">Алексей</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">YouTube Shorts</span>
-                            <span class="module-topic">Монетизация</span>
-                            <span class="module-topic">TikTok тренды</span>
-                            <span class="module-topic">Кросс-постинг</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">7</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Telegram — центр монетизации</h3>
-                            <span class="module-speaker">Алексей + Дарья</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">Telegram с нуля</span>
-                            <span class="module-topic">Перелив трафика</span>
-                            <span class="module-topic">Автоворонки</span>
-                            <span class="module-topic">BotHelp</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">8</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Сайты и инфраструктура</h3>
-                            <span class="module-speaker">Алексей</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">Claude + GitHub</span>
-                            <span class="module-topic">Сайт за 1 час</span>
-                            <span class="module-topic">Tilda / Taplink</span>
-                            <span class="module-topic">Продающий лендинг</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="module-item fade-in">
-                    <div class="module-dot">9</div>
-                    <div class="module-card">
-                        <div class="module-header-row">
-                            <h3 class="module-title">Монетизация и продажи</h3>
-                            <span class="module-speaker">Алексей</span>
-                        </div>
-                        <div class="module-topics">
-                            <span class="module-topic">Продуктовая линейка</span>
-                            <span class="module-topic">Платёжные системы</span>
-                            <span class="module-topic">CRM</span>
-                            <span class="module-topic">Юридические вопросы</span>
+                    <div class="result-item">
+                        <span class="result-check">✓</span>
+                        <div class="result-text">
+                            <h4>Готовый продукт и оффер</h4>
+                            <p>Упакованный и готовый к продаже</p>
                         </div>
                     </div>
                 </div>
@@ -1437,62 +1243,75 @@
     <section class="speakers" id="speakers">
         <div class="section-header">
             <span class="section-tag">Ведущие</span>
-            <h2>Те, кто сделал это сами</h2>
-            <p>Мы не теоретики. Все результаты — наши личные, за последние 1,5 месяца</p>
+            <h2>Кто ведёт менторство</h2>
+            <p>Все результаты — наши личные, за последние 1,5 месяца</p>
         </div>
         <div class="speakers-grid">
             <div class="speaker-card fade-in">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Алексей Федотов" class="speaker-image">
-                <div class="speaker-info">
-                    <h3 class="speaker-name">Алексей Федотов</h3>
-                    <p class="speaker-handle">@thebodymindcode</p>
-                    <div class="speaker-stats">
-                        <div class="speaker-stat">
-                            <span class="speaker-stat-number">45.8K</span>
-                            <span class="speaker-stat-label">Instagram</span>
-                        </div>
-                        <div class="speaker-stat">
-                            <span class="speaker-stat-number">24K</span>
-                            <span class="speaker-stat-label">YouTube</span>
-                        </div>
-                        <div class="speaker-stat">
-                            <span class="speaker-stat-number">10.5K</span>
-                            <span class="speaker-stat-label">Telegram</span>
-                        </div>
+                <div class="speaker-avatar">👨‍💻</div>
+                <h3 class="speaker-name">Алексей Федотов</h3>
+                <p class="speaker-handle">@thebodymindcode</p>
+                <div class="speaker-stats">
+                    <div>
+                        <span class="speaker-stat-number">45.8K</span>
+                        <span class="speaker-stat-label">Instagram</span>
+                    </div>
+                    <div>
+                        <span class="speaker-stat-number">24K</span>
+                        <span class="speaker-stat-label">YouTube</span>
+                    </div>
+                    <div>
+                        <span class="speaker-stat-number">10.5K</span>
+                        <span class="speaker-stat-label">Telegram</span>
                     </div>
                 </div>
             </div>
             <div class="speaker-card fade-in">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600" alt="Дарья Ростовцева" class="speaker-image">
-                <div class="speaker-info">
-                    <h3 class="speaker-name">Дарья Ростовцева</h3>
-                    <p class="speaker-handle">@daryarostovtseva</p>
-                    <div class="speaker-stats">
-                        <div class="speaker-stat">
-                            <span class="speaker-stat-number">22.9K</span>
-                            <span class="speaker-stat-label">Instagram</span>
-                        </div>
-                        <div class="speaker-stat">
-                            <span class="speaker-stat-number">Блог с лицом</span>
-                            <span class="speaker-stat-label">Формат</span>
-                        </div>
+                <div class="speaker-avatar">👩‍💻</div>
+                <h3 class="speaker-name">Дарья Ростовцева</h3>
+                <p class="speaker-handle">@daryarostovtseva</p>
+                <div class="speaker-stats">
+                    <div>
+                        <span class="speaker-stat-number">22.9K</span>
+                        <span class="speaker-stat-label">Instagram</span>
+                    </div>
+                    <div>
+                        <span class="speaker-stat-number">Блог с лицом</span>
+                        <span class="speaker-stat-label">Формат</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="audience">
+        <div class="section-header">
+            <span class="section-tag">Аудитория</span>
+            <h2>Для кого это менторство</h2>
+        </div>
+        <div class="audience-grid">
+            <div class="audience-item fade-in">✓ Экспертам, которые хотят монетизировать свои знания через блог</div>
+            <div class="audience-item fade-in">✓ Тем, кто хочет начать вести соцсети с нуля</div>
+            <div class="audience-item fade-in">✓ Блогерам, которые застряли в росте и хотят новый подход</div>
+            <div class="audience-item fade-in">✓ Тем, кто боится камеры — у нас есть faceless-формат</div>
+            <div class="audience-item fade-in">✓ Предпринимателям для развития личного бренда</div>
+            <div class="audience-item fade-in">✓ Психологам, коучам, тренерам, консультантам</div>
+            <div class="audience-item red fade-in">✗ Тем, кто ищет «волшебную таблетку» и быстрые результаты без работы</div>
+            <div class="audience-item red fade-in">✗ Тем, кто не готов уделять 1-2 часа в день на обучение и практику</div>
+        </div>
+    </section>
+
     <section class="pricing" id="pricing">
         <div class="section-header">
-            <span class="section-tag">Инвестиция</span>
-            <h2>Всё включено</h2>
-            <p>Никаких допродаж, скрытых платежей или "премиум-модулей"</p>
+            <span class="section-tag">Стоимость</span>
+            <h2>Инвестиция в навык</h2>
+            <p>Всё включено — никаких допродаж и скрытых платежей</p>
         </div>
         <div class="pricing-card fade-in">
             <span class="pricing-badge">Осталось 7 мест</span>
             <h3 class="pricing-title">Полная программа менторства</h3>
             <div class="pricing-price">80 000<span>₽</span></div>
-            <p class="pricing-period">2 месяца · до 10 человек · онлайн + живые встречи</p>
+            <p class="pricing-period">2 месяца · до 10 человек · онлайн + живые встречи в Москве</p>
             <div class="pricing-features">
                 <div class="pricing-feature">10 модулей программы</div>
                 <div class="pricing-feature">7 живых встреч в Москве</div>
@@ -1503,9 +1322,9 @@
                 <div class="pricing-feature">Разборы аккаунтов</div>
                 <div class="pricing-feature">Шаблоны и чек-листы</div>
             </div>
-            <a href="https://t.me/thebodymindcode" class="pricing-cta">
+            <a href="https://t.me/TheBodyMindCode_support" class="pricing-cta">
                 Записаться в Telegram
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
@@ -1517,7 +1336,7 @@
             <div class="footer-logo">Архитектура Сознания</div>
             <div class="footer-links">
                 <a href="https://instagram.com/thebodymindcode">Instagram</a>
-                <a href="https://t.me/thebodymindcode">Telegram</a>
+                <a href="https://t.me/TheBodyMindCode_support">Telegram</a>
                 <a href="https://youtube.com/@thebodymindcode">YouTube</a>
             </div>
             <p class="footer-copy">© 2026 Алексей Федотов & Дарья Ростовцева</p>
@@ -1541,7 +1360,7 @@
 
         fadeElements.forEach(el => observer.observe(el));
 
-        // Smooth scroll for navigation
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1554,35 +1373,6 @@
                 }
             });
         });
-
-        // Counter animation
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            function update() {
-                start += increment;
-                if (start < target) {
-                    element.textContent = Math.floor(start).toLocaleString();
-                    requestAnimationFrame(update);
-                } else {
-                    element.textContent = target.toLocaleString();
-                }
-            }
-            update();
-        }
-
-        // Trigger counter animation when stats section is visible
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.stat-number, .big-number');
-                    // Animation would be applied here if we had numeric-only content
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.hero-stats-card').forEach(el => statsObserver.observe(el));
     </script>
 </body>
 </html>
